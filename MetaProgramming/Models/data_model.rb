@@ -3,11 +3,15 @@ class DataModel
 
   class << self
     def attributes(*attributes)
-      @attributes = attributes
+      define_method 'attributes' do
+        attributes
+      end
     end
 
     def data_store(data_store)
-      @data_store = data_store
+      define_method 'data_store' do
+        data_store
+      end
     end
 
     def where(query_filter)

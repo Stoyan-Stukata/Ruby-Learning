@@ -8,12 +8,14 @@ class UserModel < DataModel
   def initialize(user = {})
     super()
 
+    p attributes
+
     @saved = false
     @instance_values = user.select { |field, _| attributes.any? { |attribute| attribute.to_s == field } }
   end
 
   def save
-    query_object = @instance_values.merge id: id
+    # query_object = @instance_values.merge id: id
     if data_store.find(query_object).empty?
       data_store.create query_object
     else
@@ -21,7 +23,7 @@ class UserModel < DataModel
     end
 
     @saved = true
-    id = id + 1
+    # id = id + 1
     self
   end
 
@@ -31,3 +33,5 @@ class UserModel < DataModel
     @data_store.delete @instance_values
   end
 end
+
+# UserModel.new({ name: "stoyan" }).save
