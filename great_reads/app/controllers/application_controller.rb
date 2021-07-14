@@ -10,10 +10,10 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
-  private
-    def require_login
-      unless current_user
-        redirect_to '/login'
-      end  
-    end
+  # private
+  #   def require_login
+  #     unless current_user
+  #       redirect_to '/login'
+  #     end  
+  #   end
 end 

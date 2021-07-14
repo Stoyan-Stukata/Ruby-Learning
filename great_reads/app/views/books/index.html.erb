@@ -2,9 +2,9 @@
 
 <% if logged_in? %>
   <h2>Welcome <%= current_user.username %></h2>
-  <%= link_to 'Logout', sessions_path, method: :delete %>
+  <%= link_to 'Logout', '/logout', method: :delete %>
 <% else %>
-  <%= link_to "Login", new_sessions_path %>
+  <%= link_to "Login", '/login' %>
 <% end %>
 
 <ul>
