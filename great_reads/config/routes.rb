@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root "books#index"
+  root 'books#index'
 
-  resources :books do
-    resources :comments
-  end
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :books
 end

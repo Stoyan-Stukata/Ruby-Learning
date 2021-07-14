@@ -1,5 +1,12 @@
 <h1>Great Reads</h1>
 
+<% if logged_in? %>
+  <h2>Welcome <%= current_user.username %></h2>
+  <%= link_to 'Logout', sessions_path, method: :delete %>
+<% else %>
+  <%= link_to "Login", new_sessions_path %>
+<% end %>
+
 <ul>
   <% @books.each do |book| %>
     <li>
